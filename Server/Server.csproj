@@ -166,8 +166,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\20200621202612_First.cs" />
+    <Compile Include="Migrations\20200621202612_First.designer.cs">
+      <DependentUpon>20200621202612_First.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\DatabaseContextModelSnapshot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WorkerRole.cs" />
+    <Compile Include="Данные\DatabaseContext.cs" />
+    <Compile Include="Сущности\Сущность0.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

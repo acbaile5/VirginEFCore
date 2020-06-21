@@ -5,10 +5,13 @@ using System.Linq;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.WindowsAzure;
 using Microsoft.WindowsAzure.Diagnostics;
 using Microsoft.WindowsAzure.ServiceRuntime;
 using Microsoft.WindowsAzure.Storage;
+using Server.Данные;
+using Server.Сущности;
 
 namespace Server
 {
@@ -60,6 +63,17 @@ namespace Server
 
 		private async Task RunAsync(CancellationToken cancellationToken)
 		{
+			using (var DatabaseContext = new DatabaseContext())
+			{
+				var Сущность0 = new Сущность0();
+
+				Сущность0.Параметр1 = DateTime.Now;
+
+				DatabaseContext.Entry(Сущность0).State = EntityState.Added;
+
+				await DatabaseContext.SaveChangesAsync();
+			}
+
 			// TODO: замените следующее собственной логикой.
 			while (!cancellationToken.IsCancellationRequested)
 			{
